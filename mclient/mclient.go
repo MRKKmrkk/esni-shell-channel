@@ -6,17 +6,21 @@ import (
 	"log"
 	"net"
 	"os"
+	"fmt"
+	"golang.org/x/crypto/ssh/terminal"
 
 	"golang.org/x/crypto/ssh"
 )
 
 var (
 	serverAddress = "www.zhanmabigdata.top"
-	password      = os.Args[2]
+	//password      = os.Args[2]
 	user          = os.Args[1]
 	msgPort       = "9658"
 	cliport       = "9656"
 )
+
+var password string
 
 func handleMsg(conn net.Conn) {
 
@@ -109,6 +113,16 @@ func handleMsg(conn net.Conn) {
 }
 
 func main() {
+
+	fmt.Println("Enter password: ")
+	p, errs := terminal.ReadPassword(0)
+	password = string(p)
+
+	if errs != nil {
+		fmt.Println("\nCould not read password:")
+		log.Fatal(errs)
+		os.Exit(1)
+	}
 
 	log.Println("staring esni-shell-channel multi client now")
 
