@@ -1,30 +1,31 @@
-# esni-shell-channel
+# esni-shell-channel  
 
-## 简介  
-esni-shell-channel是一个基于服务器端口转发的内网ssh连接方案。  
-当使用虚拟机或服务器部署在内网且又没有公网IP时，我们无法远程连接这些主机，esni-shell-channel可以通过在云端部署端口转发服务，实现远程主机和内网主机的互访。  
+[中文文档](https://github.com/MRKKmrkk/esni-shell-channel/blob/main/docs/CN-README.md)   
 
-## 使用教程
+## Brief
+esni-shell-channel is a program dedicated to establish LAN-to-LAN ssh connection.  
+we can not establish ssh connection when two hosts in diffrent network(LAN).you can deploy esni-shell-channel on your server which has public IP address, and it's able to transmit your ssh connection on specific port. Then those hosts can establish ssh connection through the port.
 
-**公网服务器部署端口转发服务**  
-[下载mserver](https://github.com/MRKKmrkk/esni-shell-channel/releases/download/v0.0.1/mserver)  **启动端口转发服务**  
+## Geting Started
+
+### Deploy 
+#### Public Server
+[Download mserver](https://github.com/MRKKmrkk/esni-shell-channel/releases/download/v0.0.1/mserver)  **enable transmit service on your server which obsess public IP address**  
 ```shell
-nohup ./mserver &
+$ nohup ./mserver &
 ```
 
-**内网主机部署监听服务**  
-
-[下载mserver](https://github.com/MRKKmrkk/esni-shell-channel/releases/download/v0.0.1/mclient)
-**启用内网主机监听服务**  
+#### Controlled Node 
+[Download mclient](https://github.com/MRKKmrkk/esni-shell-channel/releases/download/v0.0.1/mclient)
+**enable listener on your internal host**  
 ```shell
-./mclient ssh用户名 
+$ ./mclient $ssh-user
 ```
-启用后需要输入ssh用户对应的密码  
+Enter your password after the listener is started  
 
-  
-当云主机的端口转发服务和内网主机的监听服务全部启动后，即可使用ssh服务连接云主机的9657端口，输入用户密码后即可访问到内网主机。经测试XShell等终端连接工具均可正常使用，
-sftp服务也可正常使用。
+"You are able to connect controlled node via ssh(third-party ssh tool, like Xshell, supported as well) on public server's 9657 port then enter your username and password. Plus, sftp is also available. Make sure the listeners on public server and controlled node are enabled."
 
-## 注意事项
-1. 需要保证云主机的9656、9657、9658端口畅通且能穿过防火墙
-2. 需要保证内网主机的9658、9656端口畅通且能穿过防火墙
+## Warm prompt
+1. Ensure that port 9656, 9657 and 9658 of the public server is allowed by the firewall
+2. Ensure that port 9658 and 9656 of the controlled node is allowed by the firewall
+
