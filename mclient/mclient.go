@@ -2,19 +2,19 @@ package main
 
 import (
 	"esni-shell-channel/util"
+	"fmt"
 	"io"
 	"log"
 	"net"
 	"os"
-	"fmt"
+
 	"golang.org/x/crypto/ssh/terminal"
 
 	"golang.org/x/crypto/ssh"
 )
 
 var (
-	serverAddress = "www.zhanmabigdata.top"
-	//password      = os.Args[2]
+	serverAddress = os.Args[2]
 	user          = os.Args[1]
 	msgPort       = "9658"
 	cliport       = "9656"

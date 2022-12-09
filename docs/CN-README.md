@@ -9,7 +9,7 @@ esni-shell-channel是一个基于服务器端口转发的内网ssh连接方案�
 **公网服务器部署端口转发服务**  
 [下载mserver](https://github.com/MRKKmrkk/esni-shell-channel/releases/download/v0.0.1/mserver)  **启动端口转发服务**  
 ```shell
-nohup ./mserver $LocalAddress &
+nohup ./mserver $local-address &
 ```
 
 **内网主机部署监听服务**  
@@ -17,7 +17,7 @@ nohup ./mserver $LocalAddress &
 [下载mserver](https://github.com/MRKKmrkk/esni-shell-channel/releases/download/v0.0.1/mclient)
 **启用内网主机监听服务**  
 ```shell
-./mclient ssh用户名 
+./mclient $ssh-user $remote-address
 ```
 启用后需要输入ssh用户对应的密码  
 

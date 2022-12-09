@@ -10,14 +10,14 @@ we can not establish ssh connection when two hosts in diffrent network(LAN).you 
 #### Public Server
 [Download mserver](https://github.com/MRKKmrkk/esni-shell-channel/releases/download/v0.0.1/mserver)  **enable transmit service on your server which obsess public IP address**  
 ```shell
-$ nohup ./mserver $LocalAddress &
+$ nohup ./mserver $local-address &
 ```
 
 #### Controlled Node 
 [Download mclient](https://github.com/MRKKmrkk/esni-shell-channel/releases/download/v0.0.1/mclient)
 **enable listener on your internal host**  
 ```shell
-$ ./mclient $ssh-user
+$ ./mclient $ssh-user $remote-address
 ```
 Enter your password after the listener is started  
 
