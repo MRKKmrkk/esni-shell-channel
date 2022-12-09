@@ -1,6 +1,4 @@
-# esni-shell-channel  
-
-[中文文档](https://github.com/MRKKmrkk/esni-shell-channel/blob/main/docs/CN-README.md)   
+# esni-shell-channel
 
 ## Brief
 esni-shell-channel is a program dedicated to establish LAN-to-LAN ssh connection.  
