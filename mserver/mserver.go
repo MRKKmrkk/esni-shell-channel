@@ -4,6 +4,7 @@ import (
 	"io"
 	"log"
 	"net"
+	"os"
 	"time"
 )
 
@@ -64,7 +65,9 @@ func handleSession(mconn net.Conn, sListener net.Listener, cListener net.Listene
 // 9656 9657 9658
 func main() {
 
-	msgListener, err := net.Listen("tcp", "ESNI-Master:9658")
+	localAddress := os.Args[1]
+
+	msgListener, err := net.Listen("tcp", localAddress+":9658")
 	if err != nil {
 		log.Println("Fail to create message connection listener: ", err)
 		return
@@ -81,7 +84,7 @@ func main() {
 	defer msgConn.Close()
 
 	log.Println("Establish session listener successfully")
-	sessionListener, err := net.Listen("tcp", "ESNI-Master:9657")
+	sessionListener, err := net.Listen("tcp", localAddress+":9657")
 	if err != nil {
 		log.Println("create session listener error: ", err)
 		return
@@ -89,7 +92,7 @@ func main() {
 	defer sessionListener.Close()
 
 	log.Println("create cli listener success")
-	clilListener, err := net.Listen("tcp", "ESNI-Master:9656")
+	clilListener, err := net.Listen("tcp", localAddress+":9656")
 	if err != nil {
 		log.Println("create client listener error: ", err)
 		return

@@ -10,7 +10,7 @@ we can not establish ssh connection when two hosts in diffrent network(LAN).you 
 #### Public Server
 [Download mserver](https://github.com/MRKKmrkk/esni-shell-channel/releases/download/v0.0.1/mserver)  **enable transmit service on your server which obsess public IP address**  
 ```shell
-$ nohup ./mserver &
+$ nohup ./mserver $LocalAddress &
 ```
 
 #### Controlled Node 
