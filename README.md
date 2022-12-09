@@ -26,6 +26,6 @@ Enter your password after the listener is started
 "You are able to connect controlled node via ssh(third-party ssh tool, like Xshell, supported as well) on public server's 9657 port then enter your username and password. Plus, sftp is also available. Make sure the listeners on public server and controlled node are enabled."
 
 ## Warm prompt
-1. Ensure that port 9656, 9657 and 9658 of the public server is allowed by the firewall
-2. Ensure that port 9658 and 9656 of the controlled node is allowed by the firewall
+1. Ensure that port 9656, 9657 and 9658 of the public server is allowed by the firewall.
+2. Ensure that port 9658 and 9656 of the controlled node is allowed by the firewall.
 
